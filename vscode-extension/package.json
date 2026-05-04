@@ -1,0 +1,85 @@
+{
+  "name": "ai-coding-agent",
+  "displayName": "DevRaj IDE Agent",
+  "publisher": "raj80",
+  "description": "Cursor-like AI coding assistant powered by Claude Opus 4.7",
+  "version": "1.1.2",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raj80/ai-coding-agent"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ai-agent-sidebar",
+          "title": "DevRaj IDE Agent",
+          "icon": "./icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "ai-agent-sidebar": [
+        {
+          "type": "webview",
+          "id": "ai-agent-chat",
+          "name": "Chat"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "ai-agent.openChat",
+        "title": "DevRaj IDE Agent: Open Chat"
+      },
+      {
+        "command": "ai-agent.insertCode",
+        "title": "DevRaj IDE Agent: Insert Code"
+      },
+      {
+        "command": "ai-agent.replaceSelection",
+        "title": "DevRaj IDE Agent: Replace Selection"
+      },
+      {
+        "command": "ai-agent.toggleAutopilot",
+        "title": "DevRaj IDE Agent: Toggle Autopilot"
+      },
+      {
+        "command": "ai-agent.openFile",
+        "title": "DevRaj IDE Agent: Open Generated File"
+      }
+    ],
+    "configuration": {
+      "title": "DevRaj IDE Agent",
+      "properties": {
+        "aiAgent.apiUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "Backend API URL"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "echo 'No compilation needed'",
+    "compile": "echo 'No compilation needed'",
+    "watch": "echo 'No compilation needed'"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^18.0.0"
+  },
+  "dependencies": {}
+}

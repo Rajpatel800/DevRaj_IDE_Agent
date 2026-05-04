@@ -1,0 +1,18 @@
+import boto3
+
+# Use correct region (same as your ARN)
+client = boto3.client("bedrock-runtime", region_name="us-east-1")
+
+MODEL_ARN = "arn:aws:bedrock:us-east-1:934812479449:inference-profile/us.anthropic.claude-sonnet-4-6"
+
+response = client.converse(
+    modelId=MODEL_ARN,
+    messages=[
+        {
+            "role": "user",
+            "content": [{"text": "Write hello world in python"}]
+        }
+    ]
+)
+
+print(response["output"]["message"]["content"][0]["text"])
