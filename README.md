@@ -130,9 +130,9 @@ graph TD
 
     subgraph "AI Agent Backend"
         C[api_server.py]:::api --> D{Simple Orchestrator}:::agent
-        D -->|Routes to| E1(@planner)
-        D -->|Routes to| E2(@developer)
-        D -->|Routes to| E3(@debugger)
+        D -->|Routes to| E1["@planner"]
+        D -->|Routes to| E2["@developer"]
+        D -->|Routes to| E3["@debugger"]
         
         E1 & E2 & E3 --> F[Bedrock Client]:::agent
         
